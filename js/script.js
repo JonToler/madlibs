@@ -1,20 +1,13 @@
 $(document).ready(function() {
   $("#blanks form").submit(function(event) {
-      var person1Input=$("input#person1").val();
-      var person2Input=$("input#person2").val();
-      var animal1Input=$("input#animal1").val();
-      var car1Input=$("input#car1").val();
-      var city1Input=$("input#city1").val();
+    var blanks = ['person1','person2','animal1','car1','city1'];
+    blanks.forEach(function(blank){
+      var userInput=$('input#'+ blank).val();
+      $('.'+blank).text(userInput);
+    });
 
+    $("#story").show();
 
-      $(".person1").text(person1Input);
-      $(".person2").text(person2Input);
-      $(".animal1").text(animal1Input);
-      $(".car1").text(car1Input);
-      $(".city1").text(city1Input);
-
-      $("#story").show();
-
-      event.preventDefault();
+    event.preventDefault();
     });
 });
